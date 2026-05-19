@@ -1,0 +1,18 @@
+# IDE files
+.vscode/
+.vs/
+*.user
+
+# Build and temporary files
+build/
+build_ninja/
+err.txt
+err_asset.txt
+err_game.txt
+build_out.txt
+make_out.txt
+*.log
+
+# Keep the executable and DLLs as they are part of the student submission deliverables
+!FlappyBird.exe
+!*.dll
