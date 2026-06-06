@@ -1,6 +1,7 @@
 # Flappy Bird C++ SFML Project Report
 
-**Developed by:** Vishnu Jha
+**Developed by:** Vishnu Jha  
+**Department:** Computer Science and Engineering, ITER, SOA University
 
 ---
 
@@ -32,20 +33,20 @@ The project is a 2D side-scrolling Flappy Bird clone designed in **C++** using t
   - Menu selection buttons highlighting on mouse hover.
   - Custom buttons for Restarting and returning to the Menu on Game Over.
 - **Audio & Visuals**: Preloaded sound triggers for bird flaps and collisions.
-- **Procedural Animated Ground**: A programmatic, scrolling striped ground that moves dynamically, eliminating background checkerboard issues.
+- **Procedural Animated Ground**: A programmatic, scrolling striped ground that moves dynamically.
 
 ---
 
 ## 3. Challenges Faced & Solutions
 
-### Challenge 1: Buggy & Glitched "Checkerboard" Ground PNG
-- **Problem**: The AI-generated ground assets had persistent transparent-checkerboard pixels baked into the image, rendering poorly in the bottom right.
-- **Solution**: Instead of relying on a flawed static PNG texture, the ground was migrated to a fully procedural green design using C++ `sf::RectangleShape` that scrolls programmatically based on the active difficulty speed, producing a clean, premium visual aesthetic.
+### Challenge 1: Procedural Ground Rendering
+- **Problem**: Static ground texture assets had transparency issues that rendered poorly on certain backgrounds.
+- **Solution**: The ground was implemented as a fully procedural design using C++ `sf::RectangleShape` objects that scroll programmatically based on the active difficulty speed, producing a clean, premium visual aesthetic.
 
 ### Challenge 2: Mouse Clicks Misaligned in Fullscreen
 - **Problem**: When maximizing the window or running in full-screen mode, the mouse coordinate hitboxes for the difficulty buttons stopped working.
 - **Solution**: Replaced default `sf::Mouse::getPosition` tracking with SFML's coordinate mapping engine: `window.mapPixelToCoords()`. This mathematically translates local desktop coordinates into the game's internal 800x600 coordinate system, ensuring buttons remain 100% responsive at any resolution.
 
-### Challenge 3: Inaccurate "Phantom" Collisions
+### Challenge 3: Inaccurate Collisions
 - **Problem**: The bird was colliding with pipes even when there was visible blank space between them due to a large rectangular sprite boundary.
 - **Solution**: Shrank the bird's collision box boundary inwards by 12 pixels on each edge. This aligned the hitboxes precisely with the bird's visible body, rewarding close-call dodges.
